@@ -1,10 +1,10 @@
 import axios from "axios"
 import {ACCESS_TOKEN} from "./constants"
 
-const apiUrl = window?.configs?.apiUrl ? window.configs.apiUrl : "/choreo-apis/cloudautomation/backend/v1";
+const apiUrl = "/choreo-apis/cloudautomation/backend/v1";
 
 const api = axios.create({
-    baseURL: apiUrl,
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 })
 
 api.interceptors.request.use(
